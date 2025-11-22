@@ -66,12 +66,32 @@ git clone https://github.com/Jiwoon-Choi/raspi-voice-led-control.git
 cd raspi-voice-led-control
 ```
 
-### 2. Install required Python packages:
+### 2. Prerequisites (system-level installation)
+
+Before installing Python dependencies, make sure necessary system packages are installed on your Raspberry Pi.
+
+1. Update package lists
+```bash
+sudo apt update
+```
+
+2. Install audio-related system libraries
+```bash
+sudo apt install portaudio19-dev flac
+```
+
+* portaudio19-dev: Required for PyAudio to capture microphone input
+
+* flac: Required by SpeechRecognition to convert audio to FLAC before sending to Google STT
+
+Once these are installed, you can proceed with installing Python dependencies.
+
+### 3. Install required Python packages:
 ```bash
 pip install -r requirements.txt
 ```
 
-### 3. Prepare your hardware setup:
+### 4. Prepare your hardware setup:
 Make sure the following components are connected properly:
 - USB microphone connected to the Raspberry Pi
 - Red, Green, and Blue LEDs wired to the correct GPIO pins
@@ -81,12 +101,12 @@ Make sure the following components are connected properly:
 
 (Note: The project is designed to run on Raspberry Pi OS with Python 3.10+)
 
-### 4. Run the program:
+### 5. Run the program:
 ```bash
 python voice_led_control.py
 ```
 
-### 5. Speak one of the supported voice commands:
+### 6. Speak one of the supported voice commands:
 - "red"
 - "green"
 - "blue"
